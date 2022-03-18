@@ -1,0 +1,12 @@
+defaults: &defaults
+  uri: https://npiregistry.cms.hhs.gov/api/
+  version: '2.1'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

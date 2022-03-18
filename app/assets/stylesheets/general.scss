@@ -1,0 +1,34 @@
+.spacer{
+  height: 5px;
+}
+
+.loader{
+  display: flex;
+  font-style: italic;
+  color: $gray-600;
+  text-align:center;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background: {
+     image: asset_url("loader.gif");
+  }
+  span{
+    display: block;
+    text-align:center;
+    margin: auto;
+    margin-bottom: 10px;
+    align-self: flex-end;
+  }
+}
+
+.loader-sm, .loader-sm span{
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  padding-left: 20px;
+  background-position: left;
+}

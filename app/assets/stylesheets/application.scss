@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ */
+
+@import "bootstrap_variables";
+@import "bootstrap";
+@import "font-awesome";
+@import "general";
+@import "dashboard";
+
+body{
+  background-color: $light;
+}
+
+#header{
+  h1{
+    color: $dark;
+    padding: 10px 25px;
+    background: $light;
+    margin:0;
+    font-size: 1.5rem;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+
+  img{
+    margin-right: 20px;
+  }
+}
+
+.main-desc{
+  padding:5px 60px;
+  line-height: 50px;
+  font-size: 18px;
+  background-color: #fff;
+}
+
+#alerts{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+
+#footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient($green, #000);
+  font-size: .8em;
+  color: #CFCFCF;
+
+  a{
+    color: #FFF;
+  }
+
+  > div{
+    display: flex;
+    align-items: flex-end;
+  }
+
+  #footer-bar{
+    flex-basis: 100%;
+    padding-bottom: 20px;
+
+    > div{
+      padding:10px 15px;
+    }
+  }
+
+  .footer-name{
+    font-family: "marker felt", "Bradley Hand",  impact;
+    color: #FFF;
+  }
+
+  .contact-list{
+    list-style-type: none;
+
+    li{
+      display: inline-block;
+    }
+  }
+}

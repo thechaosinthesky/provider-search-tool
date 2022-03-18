@@ -1,0 +1,31 @@
+var NPDASH = {
+  rootUrl: <%= Rails.env.production? ? "'https://aqueous-spire-17449.herokuapp.com'" : "'http://localhost:3000'" %>,
+  alertDuration: 3500,
+
+  VIEWS: {},
+
+  init: function(){
+    NPDASH.bin = new Bin("NPDASH");
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+  },
+
+  showAlert: function(message, level="info"){
+    var iconString = "info";
+    if(level == "success") iconString = "check";
+    if(level == "warning") iconString = "warning";
+    if(level == "danger") iconString = "close";
+    var dateKey = new Date().getTime();
+    var alertString = '<div id="alert-' + dateKey + '" class="alert alert-' + level + ' d-flex justify-content-center align-items-center alert-dismissible fade show" role="alert"><i class="fa fa-' + iconString + '"></i>&nbsp;&nbsp;<div style="text-align:center;">' + message + '</div><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="margin-right: 30px;"></button></div>';
+    $("#alerts").append(alertString);
+    setTimeout(function(){
+      var $alert = $("#alert-" + dateKey);
+      if($alert.length > 0) new bootstrap.Alert($alert[0]).close();
+    }, NPDASH.alertDuration);
+  }
+
+};

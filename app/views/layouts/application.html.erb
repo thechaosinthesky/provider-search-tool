@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Provider Search Tool</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="header" class="row g-0">
+      <div class="col-12">
+        <div class="logo">
+          <h1>Provider Search Tool <i class="fa fa-leaf text-green"></i><i class="fa fa-plus text-warning"></i>&nbsp;</h1>
+          <div class="row g-0 bg-dark spacer">
+          </div>
+          <div class="main-desc d-flex justify-content-between">
+            <div>
+              Find providers from the National Plan and Provider Enumeration System (NPPES)
+            </div>
+            <a class="btn btn-outline-info btn-lg" href="https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/NationalProvIdentStand/DataDissemination"><img src="https://www.cms.gov/sites/default/files/favicon.ico" />NPPES</a>
+          </div>
+          <div class="row g-0 bg-dark spacer">
+          </div>
+          <div class="row clearfix">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="main" class="row g-0">
+      <div class="col dashboard-container">
+        <%= yield %>
+      </div>
+    </div>
+
+    <div id="footer" class="row g-0 bg-info">
+      <div class="col-12">
+        <div id="footer-bar" class="row g-0">
+          <div class="col col-2 text-start footer-name text-yellow">
+            Bradley Carlson
+          </div>
+          <div class="col col-8 text-center d-flex justify-content-center align-items-center">
+            <div><abbr title="Phone">P:</abbr>&nbsp; 303-906-7470</div>
+            <div>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+            <div><abbr title="Email">E:</abbr>&nbsp; <a href="mailto:bradleyrc@gmail.com">bradleyrc@gmail.com</a></div>
+            <div>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+            <div><i class="fa fa-linkedin"></i>&nbsp;<a href="https://www.linkedin.com/in/carlsonee/">carlsonee</a></div>
+          </div>
+          <div class="col col-2 text-end">
+            &copy; 2022
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="alerts">
+    </div>
+
+    <% if !Rails.env.production? && !Rails.env.staging? %>
+      <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+      <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <% else %>
+      <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+      <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <% end %>
+
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= yield :jsfooter %>
+
+    <% if flash[:success].present? %>
+      <script>$(function() { NPDASH.showAlert("<%= flash[:success] %>", "success") });</script>
+    <% end %>
+
+    <% if flash[:error].present? %>
+      <script>$(function() { NPDASH.showAlert("<%= flash[:error] %>", "danger") });</script>
+    <% end %>
+
+    <% if flash[:warning].present? %>
+      <script>$(function() { NPDASH.showAlert("<%= flash[:warning] %>", "warning") });</script>
+    <% end %>
+
+  </body>
+</html>

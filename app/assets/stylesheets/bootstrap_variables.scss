@@ -1,0 +1,52 @@
+// scss-docs-start color-variables
+$blue:    #AB85FF !default;
+$indigo:  #AB85FF !default;
+$purple:  #AB85FF !default;
+$purple:  #7851cf !default;
+$pink:    #F06BC3 !default;
+$red:     #C35355 !default;
+$orange:  #F5A55B !default;
+$yellow:  #F9F871 !default;
+$green:   #008B74 !default;
+$teal:    #00B7A4 !default;
+$cyan:    #00B7C7 !default;
+// scss-docs-end color-variables
+
+$light:         #FFF7ED !default;
+$dark:          #524439 !default;
+$warning:       $orange !default;
+$primary:       #7851cf;
+$secondary:     $light !default;
+
+.text-green{
+  color: $green !important;
+}
+
+.btn-primary{
+  color: #FFF !important;
+}
+
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 8px;
+    text-align: center;
+}
+.btn-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 10px;
+    text-align: center;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 12px;
+    text-align: center;
+}
